@@ -79,9 +79,17 @@ export const PSBInputDialog: React.FC<PSBInputDialogProps> = ({ onOrderCreated }
         setOpen(false);
         onOrderCreated?.();
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error creating PSB order:', error);
-      toast.error('Gagal menyimpan data PSB');
+      
+      // Handle specific error cases
+      if (error.status === 409 || error.message?.includes('409')) {
+        toast.error('Nomor order sudah ada! Silakan gunakan nomor order yang berbeda.');
+      } else if (error.status === 400) {
+        toast.error('Data tidak valid. Periksa kembali form Anda.');
+      } else {
+        toast.error('Gagal menyimpan data PSB. Silakan coba lagi.');
+      }
     } finally {
       setLoading(false);
     }

@@ -130,8 +130,18 @@ export const psbApi = {
       );
       console.log("PSB API: Create response:", response.data);
       return response.data as { success: boolean; data: PSBOrder };
-    } catch (error) {
+    } catch (error: any) {
       console.error("PSB API: Error creating order:", error);
+      
+      // Enhanced error handling for better user experience
+      if (error.status === 409) {
+        const errorMessage = error.data?.details || `Order number ${orderData.orderNo} already exists`;
+        throw new Error(`409: ${errorMessage}`);
+      } else if (error.status === 400) {
+        const errorMessage = error.data?.details || 'Invalid data provided';
+        throw new Error(`400: ${errorMessage}`);
+      }
+      
       throw error;
     }
   },
