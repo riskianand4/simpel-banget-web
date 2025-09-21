@@ -300,6 +300,7 @@ export const PSBDataManagement: React.FC = () => {
     try {
       await psbApi.createOrder(data);
       toast.success("Data berhasil ditambahkan");
+      setAddDialog(false); // Close the dialog
       fetchOrders();
     } catch (error) {
       console.error("Create error:", error);
@@ -677,6 +678,9 @@ export const PSBDataManagement: React.FC = () => {
                       <TableHead className="font-semibold text-xs sm:text-sm whitespace-nowrap hidden lg:table-cell">
                         Package
                       </TableHead>
+                      <TableHead className="font-semibold text-xs sm:text-sm whitespace-nowrap hidden xl:table-cell">
+                        Address
+                      </TableHead>
                       <TableHead className="font-semibold text-xs sm:text-sm whitespace-nowrap">
                         Status
                       </TableHead>
@@ -731,6 +735,11 @@ export const PSBDataManagement: React.FC = () => {
                         <TableCell className="hidden lg:table-cell">
                           <span className="text-xs sm:text-sm truncate max-w-[100px]">
                             {order.package}
+                          </span>
+                        </TableCell>
+                        <TableCell className="hidden xl:table-cell">
+                          <span className="text-xs sm:text-sm truncate max-w-[150px]" title={order.address}>
+                            {order.address}
                           </span>
                         </TableCell>
                         <TableCell>
