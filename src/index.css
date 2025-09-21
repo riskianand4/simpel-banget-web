@@ -2,106 +2,248 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Modern Inventory Management Design System - Premium Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Soft Warm Light Theme - Comfortable for Eyes */
+    --background: 45 15% 98%;
+    --foreground: 40 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Enhanced Card System with Warm Off-White */
+    --card: 45 10% 99%;
+    --card-foreground: 40 25% 15%;
+    --card-hover: 45 20% 97%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover */
+    --popover: 45 10% 99%;
+    --popover-foreground: 40 25% 15%;
 
-    --primary: 263 85% 60%;
+    /* Vibrant Primary - Green */
+    --primary: 78 68% 47%;
     --primary-foreground: 0 0% 100%;
+    --primary-hover: 78 68% 42%;
+    --primary-light: 78 68% 95%;
+    --primary-dark: 78 68% 35%;
+    --primary-glow: 78 68% 85%;
 
-    --secondary: 240 100% 98%;
-    --secondary-foreground: 263 85% 60%;
+    /* Professional Secondary - Warm Light Gray */
+    --secondary: 40 15% 92%;
+    --secondary-foreground: 40 25% 25%;
+    --secondary-hover: 40 20% 88%;
 
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
+    /* Refined Muted - Natural Warm Tones */
+    --muted: 40 15% 92%;
+    --muted-foreground: 40 10% 45%;
 
-    --accent: 263 85% 60%;
+    /* Soft Accent - Gentle Purple */
+    --accent: 260 60% 65%;
     --accent-foreground: 0 0% 100%;
+    --accent-light: 260 30% 98%;
+    --accent-hover: 260 65% 60%;
 
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(263, 85%, 60%) 0%, hsl(280, 85%, 70%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(240, 100%, 98%) 0%, hsl(240, 5%, 96%) 100%);
-    --shadow-soft: 0 4px 20px -2px hsl(263 85% 60% / 0.1);
+    /* Vivid Success - Emerald Green */
+    --success: 145 80% 48%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 145 80% 98%;
+    --success-hover: 145 80% 43%;
+
+    /* Bold Warning - Amber */
+    --warning: 38 95% 55%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 38 95% 98%;
+    --warning-hover: 38 95% 50%;
+
+    /* Strong Destructive - Crimson */
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-light: 0 80% 98%;
+    --destructive-hover: 0 80% 50%;
+
+    /* Soft Enhanced Borders and Inputs */
+    --border: 40 8% 88%;
+    --input: 40 12% 95%;
+    --ring: 78 68% 47%;
+
+    /* Modern Layout with Soft Warm Shadows */
+    --radius: 0.75rem;
+    --shadow-soft: 0 4px 24px -8px hsl(40 20% 20% / 0.08);
+    --shadow-medium: 0 12px 48px -16px hsl(40 20% 20% / 0.12);
+    --shadow-strong: 0 24px 64px -24px hsl(40 20% 20% / 0.16);
+    --shadow-glow: 0 0 48px -12px hsl(78 68% 47% / 0.3);
+    --shadow-card: 0 8px 32px -12px hsl(40 20% 20% / 0.06);
+
+    /* Warm Professional Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(78 68% 47%), hsl(78 68% 42%));
+    --gradient-secondary: linear-gradient(135deg, hsl(40 20% 98%), hsl(40 15% 95%));
+    --gradient-accent: linear-gradient(135deg, hsl(260 60% 70%), hsl(260 65% 60%));
+    --gradient-card: linear-gradient(135deg, hsl(45 10% 99%), hsl(45 15% 97%));
+
+    /* Soft Warm Solid Colors */
+    --solid-primary: hsl(78 68% 47%);
+    --solid-card: hsl(45 10% 99%);
+    --solid-glass: hsl(45 10% 99% / 0.95);
+
+    /* Professional Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Enhanced Sidebar with Warm Theme */
+    --sidebar-background: 45 10% 99%;
+    --sidebar-foreground: 40 25% 15%;
+    --sidebar-primary: 78 68% 47%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 15% 92%;
+    --sidebar-accent-foreground: 40 25% 15%;
+    --sidebar-border: 40 8% 88%;
+    --sidebar-ring: 78 68% 47%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    /* Main Background - Dark theme */
+    --background: 222 10% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    /* Card System - Dark */
+    --card: 222 10% 8%;
     --card-foreground: 210 40% 98%;
+    --card-hover: 222 10% 10%;
 
-    --popover: 222.2 84% 4.9%;
+    /* Popover */
+    --popover: 222 10% 8%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 263 85% 70%;
-    --primary-foreground: 222.2 84% 4.9%;
+    /* Primary - Green theme for dark mode */
+    --primary: 78 68% 52%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 78 68% 47%;
+    --primary-light: 78 68% 15%;
+    --primary-dark: 78 68% 60%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    /* Secondary - Dark gray */
+    --secondary: 215 15% 15%;
     --secondary-foreground: 210 40% 98%;
+    --secondary-hover: 215 15% 18%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Muted - Dark tones */
+    --muted: 215 15% 15%;
+    --muted-foreground: 215 10% 70%;
 
-    --accent: 263 85% 70%;
-    --accent-foreground: 222.2 84% 4.9%;
+    /* Accent - Purple but darker */
+    --accent: 260 80% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 260 80% 15%;
 
-    /* Custom design tokens for dark mode */
-    --gradient-primary: linear-gradient(135deg, hsl(263, 85%, 70%) 0%, hsl(280, 85%, 80%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(217.2, 32.6%, 17.5%) 0%, hsl(222.2, 84%, 4.9%) 100%);
-    --shadow-soft: 0 4px 20px -2px hsl(263 85% 70% / 0.2);
+    /* Success - Green */
+    --success: 142 85% 45%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 85% 15%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Warning - Orange */
+    --warning: 35 100% 55%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 35 100% 15%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    /* Destructive - Red */
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-light: 0 85% 15%;
+
+    /* Borders and inputs */
+    --border: 215 20% 20%;
+    --input: 215 20% 18%;
+    --ring: 78 68% 52%;
+
+    /* Sidebar colors for dark mode */
+    --sidebar-background: 222 10% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 78 68% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 215 15% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 20% 20%;
+    --sidebar-ring: 78 68% 52%;
+
+    /* Dark gradients and solids */
+    --gradient-card: linear-gradient(135deg, hsl(222 10% 8%), hsl(222 10% 10%));
+    --solid-card: hsl(222 10% 8%);
+    --solid-glass: hsl(222 10% 6% / 0.85);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .indonesian {
+    /* Main Background - Indonesian Green Theme */
+    --background: 120 15% 96%;
+    --foreground: 215 25% 15%;
+
+    /* Card System - Green gradient cards with blue borders */
+    --card: 120 40% 92%;
+    --card-foreground: 215 25% 15%;
+    --card-hover: 120 45% 88%;
+
+    /* Popover */
+    --popover: 120 40% 95%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary - Traditional Indonesian Green */
+    --primary: 120 55% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 120 55% 40%;
+    --primary-light: 120 55% 95%;
+    --primary-dark: 120 55% 35%;
+
+    /* Secondary - Traditional Gold/Brown */
+    --secondary: 45 65% 75%;
+    --secondary-foreground: 215 25% 15%;
+    --secondary-hover: 45 65% 70%;
+
+    /* Muted - Subtle green tones */
+    --muted: 120 20% 90%;
+    --muted-foreground: 215 10% 55%;
+
+    /* Accent - Royal Blue for borders */
+    --accent: 220 85% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 220 85% 95%;
+
+    /* Success - Bright Green */
+    --success: 142 85% 50%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 85% 95%;
+
+    /* Warning - Traditional Gold */
+    --warning: 45 100% 55%;
+    --warning-foreground: 215 25% 15%;
+    --warning-light: 45 100% 95%;
+
+    /* Destructive - Traditional Red */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-light: 0 75% 95%;
+
+    /* Borders and inputs - Blue theme */
+    --border: 220 85% 65%;
+    --input: 120 30% 94%;
+    --ring: 220 85% 50%;
+
+    /* Sidebar colors */
+    --sidebar-background: 120 25% 94%;
+    --sidebar-foreground: 215 25% 15%;
+    --sidebar-primary: 120 55% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 120 30% 88%;
+    --sidebar-accent-foreground: 215 25% 15%;
+    --sidebar-border: 220 85% 65%;
+    --sidebar-ring: 220 85% 50%;
+
+    /* Indonesian gradients */
+    --gradient-indonesian: linear-gradient(135deg, hsl(120 55% 50%), hsl(120 45% 40%));
+    --gradient-card: linear-gradient(135deg, hsl(120 40% 94%), hsl(120 35% 88%));
+    --gradient-traditional: linear-gradient(135deg, hsl(45 65% 75%), hsl(45 55% 65%));
   }
 }
 
@@ -111,6 +253,300 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Enhanced Modern Effects */
+  .glass {
+    background: var(--solid-glass);
+    backdrop-filter: blur(24px);
+    border: 1px solid hsl(78 68% 47% / 0.15);
+    box-shadow: var(--shadow-card);
+  }
+
+  .modern-card {
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+
+  .modern-card:hover {
+    box-shadow: var(--shadow-medium);
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  .primary-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .accent-border {
+    border: 2px solid hsl(var(--accent));
+  }
+
+  /* Indonesian theme utilities */
+  .indonesian-card {
+    background: var(--gradient-card);
+    border: 3px solid hsl(var(--accent));
+    border-radius: var(--radius);
+  }
+
+  .indonesian-gradient {
+    background: var(--gradient-indonesian);
+  }
+
+  .traditional-border {
+    border: 3px solid hsl(var(--accent));
+    border-radius: var(--radius);
+  }
+
+  /* Hover animations - Removed scale effect */
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-strong);
+  }
+  
+  /* Separate scale-only animation for cards that need it - Scale removed */
+  .hover-scale {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-scale:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Modern scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+
+  /* Enhanced shimmer with modern gradient animation */
+  @keyframes shimmer {
+    0% { 
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% { 
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+    background: hsl(var(--muted));
+  }
+
+  .shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--background) / 0.8),
+      transparent
+    );
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  /* Mobile safe area utilities */
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Enhanced Mobile Responsive System */
+  
+  /* Core responsive padding */
+  .mobile-responsive-padding {
+    @apply px-3 sm:px-4 md:px-6 lg:px-8;
+  }
+
+  .mobile-responsive-text {
+    @apply text-sm sm:text-base md:text-lg lg:text-xl;
+  }
+
+  .mobile-responsive-spacing {
+    @apply space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6;
+  }
+
+  .mobile-responsive-title {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+  }
+
+  .mobile-responsive-subtitle {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+
+  /* Typography Scale for Mobile */
+  .mobile-text-tiny {
+    @apply text-xs sm:text-sm;
+  }
+
+  .mobile-text-small {
+    @apply text-sm sm:text-base;
+  }
+
+  .mobile-text-medium {
+    @apply text-base sm:text-lg;
+  }
+
+  .mobile-text-large {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+
+  /* Spacing System */
+  .mobile-spacing-tight {
+    @apply space-y-1 sm:space-y-2 md:space-y-3;
+  }
+
+  .mobile-spacing-normal {
+    @apply space-y-2 sm:space-y-3 md:space-y-4;
+  }
+
+  .mobile-spacing-loose {
+    @apply space-y-3 sm:space-y-4 md:space-y-6;
+  }
+
+  /* Padding System */
+  .mobile-padding-compact {
+    @apply p-2 sm:p-3 md:p-4;
+  }
+
+  .mobile-padding-normal {
+    @apply p-3 sm:p-4 md:p-6;
+  }
+
+  .mobile-padding-loose {
+    @apply p-4 sm:p-6 md:p-8;
+  }
+
+  /* Gap System */
+  .mobile-gap-tight {
+    @apply gap-1 sm:gap-2 md:gap-3;
+  }
+
+  .mobile-gap-normal {
+    @apply gap-2 sm:gap-3 md:gap-4;
+  }
+
+  .mobile-gap-loose {
+    @apply gap-3 sm:gap-4 md:gap-6;
+  }
+
+  /* Layout Utilities */
+  .mobile-header-compact {
+    @apply h-12 sm:h-14 md:h-16;
+  }
+
+  .mobile-content-container {
+    @apply max-w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mx-auto;
+  }
+
+  /* Grid Systems */
+  .mobile-grid-1-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2;
+  }
+
+  .mobile-grid-1-2-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .mobile-grid-1-2-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4;
+  }
+
+  .mobile-grid-2-4 {
+    @apply grid grid-cols-2 md:grid-cols-4;
+  }
+
+  /* Touch Targets */
+  .mobile-touch-target {
+    @apply min-h-11 min-w-11; /* 44px minimum touch target */
+  }
+
+  .mobile-button-size {
+    @apply h-10 sm:h-11 px-3 sm:px-4 text-sm sm:text-base;
+  }
+
+  /* Form Utilities */
+  .mobile-form-stack {
+    @apply flex flex-col space-y-3 sm:space-y-4;
+  }
+
+  .mobile-form-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4;
+  }
+
+  /* Table Responsive */
+  .mobile-table-container {
+    @apply overflow-x-auto -mx-3 sm:mx-0;
+  }
+
+  .mobile-table-wrapper {
+    @apply min-w-full sm:min-w-0;
+  }
+
+  /* Card Responsive */
+  .mobile-card-compact {
+    @apply rounded-lg sm:rounded-xl border shadow-sm;
+  }
+
+  .mobile-card-padding {
+    @apply p-3 sm:p-4 md:p-6;
+  }
+
+  /* Hide/Show Utilities */
+  .mobile-only {
+    @apply block sm:hidden;
+  }
+
+  .desktop-only {
+    @apply hidden sm:block;
+  }
+
+  .tablet-up {
+    @apply hidden md:block;
+  }
+
+  /* Navigation Utilities */
+  .mobile-nav-item {
+    @apply flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg transition-colors;
+  }
+
+  /* Safe Areas */
+  .mobile-safe-bottom {
+    @apply pb-safe-bottom;
+  }
+
+  .mobile-safe-top {
+    @apply pt-safe-top;
   }
 }
