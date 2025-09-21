@@ -272,15 +272,10 @@ router.get('/analytics', auth, async (req, res) => {
 
 // Create new PSB order
 router.post('/', auth, async (req, res) => {
-  const session = await mongoose.startSession();
-  
   try {
-    await session.startTransaction();
-    
     // Validate input
     const validationErrors = validatePSBOrderInput(req.body);
     if (validationErrors.length > 0) {
-      await session.abortTransaction();
       return res.status(400).json({
         success: false,
         error: 'Validation failed',
@@ -303,10 +298,9 @@ router.post('/', auth, async (req, res) => {
       createdBy: req.user._id
     };
 
-    // Check for duplicate orderNo with retry logic
-    const existingOrder = await PSBOrder.findOne({ orderNo: sanitizedData.orderNo }).session(session);
+    // Check for duplicate orderNo
+    const existingOrder = await PSBOrder.findOne({ orderNo: sanitizedData.orderNo });
     if (existingOrder) {
-      await session.abortTransaction();
       return res.status(409).json({
         success: false,
         error: 'Order number already exists',
@@ -314,8 +308,8 @@ router.post('/', auth, async (req, res) => {
       });
     }
 
-    // Get the next order number atomically
-    const lastOrder = await PSBOrder.findOne().sort({ no: -1 }).session(session);
+    // Get the next order number
+    const lastOrder = await PSBOrder.findOne().sort({ no: -1 });
     const nextNo = lastOrder ? lastOrder.no + 1 : 1;
     
     sanitizedData.no = nextNo;
@@ -323,11 +317,9 @@ router.post('/', auth, async (req, res) => {
     console.log(`[PSB] Creating order ${sanitizedData.orderNo} with no: ${nextNo}`);
 
     const order = new PSBOrder(sanitizedData);
-    await order.save({ session });
+    await order.save();
 
     await order.populate('createdBy', 'name email');
-
-    await session.commitTransaction();
     
     console.log(`[PSB] Order created successfully: ${order._id}`);
 
@@ -337,7 +329,6 @@ router.post('/', auth, async (req, res) => {
       message: 'PSB order created successfully'
     });
   } catch (error) {
-    await session.abortTransaction();
     console.error('[PSB] Error creating order:', error);
     
     if (error.code === 11000) {
@@ -355,8 +346,6 @@ router.post('/', auth, async (req, res) => {
       error: 'Failed to create PSB order',
       details: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
-  } finally {
-    await session.endSession();
   }
 });
 
